@@ -1,0 +1,30 @@
+if [ -f ~/.bash_funcs ]; then
+    . ~/.bash_funcs
+fi
+
+# Git related command-line customization
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "("${ref#refs/heads/}")"
+}
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+FOREGROUND="\[\033[0m\]"
+PS1="$GREEN\w$YELLOW \$(parse_git_branch)$GREEN\$ $FOREGROUND"
+
+###############
+# PATH CONFIG #
+###############
+export JAVA_HOME=/opt/java
+
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# RBENV for Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# VirtualEnv for Python
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Private
+source /usr/local/bin/virtualenvwrapper.sh
