@@ -1,5 +1,21 @@
+if [ -f ~/.bash_build ]; then
+    . ~/.bash_build
+fi
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 if [ -f ~/.bash_funcs ]; then
     . ~/.bash_funcs
+fi
+
+if [ -f ~/.bash_kfuncs ]; then
+    . ~/.bash_kfuncs
+fi
+
+if [ -f ~/git-completion.bash ]; then
+    . ~/git-completion.bash
 fi
 
 # Git related command-line customization
@@ -11,20 +27,26 @@ RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
 FOREGROUND="\[\033[0m\]"
-PS1="$GREEN\w$YELLOW \$(parse_git_branch)$GREEN\$ $FOREGROUND"
 
-###############
-# PATH CONFIG #
-###############
-export JAVA_HOME=/opt/java
+# Get Virtual Env
+if [[ $VIRTUAL_ENV != "" ]]; then
+      # Strip out the path and just leave the env name
+      venv="${RED}[${VIRTUAL_ENV##*/}]"
+else
+      # In case you don't have one activated
+      venv=''
+fi
 
-export PATH="$JAVA_HOME/bin:$PATH"
+PS1="$GREEN\w$YELLOW\$(parse_git_branch)$venv$GREEN\$ $FOREGROUND"
 
-# RBENV for Ruby
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# Path
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin:$HOME/Den/bin
+export USERDIR=~/kinnek/dosa/kinnek/kinnek/users/eugene/
 
-# VirtualEnv for Python
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Private
-source /usr/local/bin/virtualenvwrapper.sh
+# Hub
+eval "$(hub alias -s)"
+if [ -f ~/hub.bash_completion.sh ]; then
+    . ~/hub.bash_completion.sh
+fi
+
