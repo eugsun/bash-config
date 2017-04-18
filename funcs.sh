@@ -1,12 +1,10 @@
-#!/bin/bash
-
 function add_alias {
     if [ $# -ne 2 ]; then
         echo "add_alias <alias-name> <mapped-command>"
         return
     fi
 
-    echo "alias $1=\"$2\"" >> $HOME/.bash_aliases
+    echo "alias $1=\"$2\"" >> $HOME/.aliases
     echo "Alias added successfully."
     source $HOME/.bash_aliases
 }
@@ -39,18 +37,6 @@ function logk {
         return
     fi
     tail -f $CATALINA_HOME/logs/*$1*.log
-}
-
-function todaysnotes {
-    notesPath="/other/worknotes"
-    todaysDate=$(date +%Y-%m-%d)
-    notesName=notes-$todaysDate.md
-    fullPath=$notesPath/$notesName
-    if [ ! -f $fullPath ]; then
-        echo $todaysDate >> $fullPath
-        echo "==========" >> $fullPath
-    fi
-    enw $fullPath
 }
 
 function checkout {
@@ -108,4 +94,19 @@ function replace {
         echo "   Ex: replace '*.xml' 'old-message' 'new-message'"
     fi
     find ./ -name "$1" | xargs sed -i "s/$2/$3/g"
+}
+
+function check_nginx {
+    # command="service status nginx | grep start"
+    grep_cmd="grep gulpfile.js > /dev/null"
+    stuff=1
+    if [ $stuff = "1" ] && ls | $grep_cmd; then
+        echo "started";
+    else
+        echo "stopped";
+    fi
+}
+
+function pushself {
+    git rev-parse --abbrev-ref HEAD | xargs git push -u origin
 }
