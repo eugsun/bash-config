@@ -1,7 +1,7 @@
 alias realias="source $HOME/.aliases"
-#alias edaemon="emacs --daemon"
-alias enw="emacsclient"
-alias enw="emacs -nw"
+alias edaemon="emacs --daemon"
+alias e="emacsclient -c -nw"
+alias ew="emacsclient -c"
 
 alias tgrep="grep --color -n -R"
 alias nfind="find ./ -name"
@@ -19,3 +19,7 @@ export DIST_FILES="*.min.css *.min.js *.min.js.map *.min.css.map **/dist/*.css *
 alias cleandist="git checkout -- $DIST_FILES"
 alias resetdist="git reset HEAD $DIST_FILES"
 alias crdist="resetdist && cleandist"
+
+if [ "$(uname)" = "Darwin" ]; then
+    alias love="/Applications/love.app/Contents/MacOS/love"
+fi
