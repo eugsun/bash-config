@@ -4,8 +4,8 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Conda
-source $HOME/miniconda3/etc/profile.d/conda.sh
+run_if_exists $HOME/miniconda3/etc/profile.d/conda.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-source $HOME/.rvm/scripts/rvm
+run_if_exists $HOME/.rvm/scripts/rvm
