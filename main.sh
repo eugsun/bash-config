@@ -6,7 +6,8 @@ function run_if_exists {
     fi
 }
 
-run_if_exists ~/.dotfiles/build.sh
+if [[ -o login ]] cat ~/.dotfiles/startup.txt
+
+run_if_exists ~/.dotfiles/paths.sh
 run_if_exists ~/.dotfiles/aliases.sh
 run_if_exists ~/.dotfiles/funcs.sh
-run_if_exists ~/.werkdotfiles/eugene/main.sh
