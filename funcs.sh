@@ -4,9 +4,9 @@ function add_alias {
         return
     fi
 
-    echo "alias $1=\"$2\"" >> $HOME/.aliases
+    echo "alias $1=\"$2\"" >> $HOME/.dotfiles/aliases.sh
     echo "Alias added successfully."
-    source $HOME/.bash_aliases
+    source $HOME/.dotfiles/aliases.sh
 }
 
 function kdbp { # kill database processes
