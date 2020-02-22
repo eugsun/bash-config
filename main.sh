@@ -1,4 +1,4 @@
-run_if_exists ~/.dotfiles/utils.sh
+source ~/.dotfiles/utils.sh
 run_if_exists ~/.dotfiles/build.sh
 run_if_exists ~/.dotfiles/aliases.sh
 run_if_exists ~/.dotfiles/funcs.sh
