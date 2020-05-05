@@ -24,3 +24,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Local bins
 export PATH="$HOME/.local/bin:$PATH"
+
+# Doom Emacs
+export PATH="$HOME/.emacs.d/bin:$PATH"

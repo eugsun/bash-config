@@ -23,3 +23,5 @@ alias crdist="resetdist && cleandist"
 if [ "$(uname)" = "Darwin" ]; then
     alias love="/Applications/love.app/Contents/MacOS/love"
 fi
+
+alias poet="poetry run"
