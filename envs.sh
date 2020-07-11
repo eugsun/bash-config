@@ -14,6 +14,9 @@ run_if_exists "$HOME/.poetry/env"
 # Haskell
 run_if_exists "$HOME/.ghcup/env"
 
+# Rust
+run_if_exists "$HOME/.cargo/env"
+
 # NVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
