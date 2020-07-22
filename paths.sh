@@ -27,3 +27,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Doom Emacs
 export PATH="$HOME/.emacs.d/bin:$PATH"
+
+# Emacs
+export PATH="$HOME/Apps/emacs/bin:$PATH"
