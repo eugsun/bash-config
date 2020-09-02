@@ -25,3 +25,4 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 alias poet="poetry run"
+alias svpn="sudo surfshark-vpn"
