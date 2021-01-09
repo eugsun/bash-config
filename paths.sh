@@ -30,3 +30,7 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 
 # Emacs
 export PATH="$HOME/Apps/emacs/bin:$PATH"
+
+# Go
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"

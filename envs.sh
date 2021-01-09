@@ -24,5 +24,13 @@ run_if_exists "$HOME/.cargo/env"
 # Lua
 if which luaenv > /dev/null; then eval "$(luaenv init -)"; fi
 
+# Go env
+if [ -x $(command -v goenv) ]; then
+   eval "$(goenv init -)"
+fi
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 run_if_exists "$HOME/.rvm/scripts/rvm"
