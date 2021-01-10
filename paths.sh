@@ -13,9 +13,6 @@ export PATH="$PATH:$ANDROID_HOME"
 # NVM
 export NVM_DIR="$HOME/.nvm"
 
-# Go
-export PATH="$HOME/go/bin:$PATH"
-
 # Lua
 export PATH="$HOME/.luaenv/bin:$PATH"
 
@@ -31,6 +28,6 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 # Emacs
 export PATH="$HOME/Apps/emacs/bin:$PATH"
 
-# Go
+# Go Env
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"

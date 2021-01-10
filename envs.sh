@@ -2,8 +2,10 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -x "$(command -v pyenv)" ]; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 # Conda
 run_if_exists "$HOME/miniconda3/etc/profile.d/conda.sh"
@@ -22,15 +24,16 @@ run_if_exists "$HOME/.cargo/env"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Lua
-if which luaenv > /dev/null; then eval "$(luaenv init -)"; fi
-
-# Go env
-if [ -x $(command -v goenv) ]; then
-   eval "$(goenv init -)"
+if [ -x "$(command -v luaenv)" ]; then
+    eval "$(luaenv init -)"
 fi
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
 
+# Go
+if [ -x "$(command -v goenv)" ]; then
+    eval "$(goenv init -)"
+    export PATH="$GOROOT/bin:$PATH"
+    export PATH="$PATH:$GOPATH/bin"
+fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 run_if_exists "$HOME/.rvm/scripts/rvm"
