@@ -7,8 +7,9 @@ export FLUTTER_BIN="$HOME/Apps/flutter/bin"
 export PATH="$PATH:$HOME/.pub-cache/bin:$FLUTTER_BIN:$FLUTTER_BIN/cache/dart-sdk/bin"
 
 # Android
-export ANDROID_HOME="$HOME/Android/Sdk/"
-export PATH="$PATH:$ANDROID_HOME"
+export ANDROID_HOME="$HOME/Android/sdk"
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
